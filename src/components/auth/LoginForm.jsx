@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import LoginTypeTabs from './LoginTypeTabs';
@@ -6,6 +7,7 @@ import SocialLoginButtons from './SocialLoginButtons';
 import SecurityNotice from './SecurityNotice';
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('user');
   const [showPassword, setShowPassword] = useState(false);
   const [emailOrPhone, setEmailOrPhone] = useState('');
@@ -14,7 +16,9 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // UI demo interaction
+    if (emailOrPhone.trim() && password.trim()) {
+      navigate('/admin/dashboard');
+    }
   };
 
   return (
