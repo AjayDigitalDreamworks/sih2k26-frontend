@@ -68,6 +68,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     if (id === 'dashboard') return '/admin/dashboard';
     if (id === 'live-map') return '/admin/live-map';
     if (id === 'route-optimization') return '/admin/route-optimization';
+    if (id === 'vehicle-tracking') return '/admin/vehicle-tracking';
     return '#';
   };
 
@@ -80,6 +81,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'route-optimization') {
       return location.pathname === '/admin/route-optimization';
+    }
+    if (id === 'vehicle-tracking') {
+      return location.pathname === '/admin/vehicle-tracking';
     }
     return false;
   };

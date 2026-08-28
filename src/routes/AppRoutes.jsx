@@ -5,6 +5,7 @@ import LoginPage from '../pages/Auth/LoginPage';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 import LiveMapPage from '../pages/Admin/LiveMapPage';
 import RouteOptimization from '../pages/Admin/RouteOptimization';
+import VehicleTracking from '../pages/Admin/VehicleTracking';
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,9 @@ export default function AppRoutes() {
 
       {/* Route Optimization Page */}
       <Route path="/admin/route-optimization" element={<RouteOptimization />} />
+
+      {/* Vehicle Tracking Page */}
+      <Route path="/admin/vehicle-tracking" element={<VehicleTracking />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
