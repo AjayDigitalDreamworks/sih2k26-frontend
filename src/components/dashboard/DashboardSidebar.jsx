@@ -76,6 +76,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     if (id === 'route-optimization') return '/admin/route-optimization';
     if (id === 'vehicle-tracking') return '/admin/vehicle-tracking';
     if (id === 'alerts') return '/admin/alerts-notifications';
+    if (id === 'emergency') return '/admin/emergency';
     if (id === 'field-reports') return '/admin/field-reports';
     if (id === 'district-management') return '/admin/district-management';
     return '#';
@@ -96,6 +97,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'alerts') {
       return location.pathname === '/admin/alerts-notifications';
+    }
+    if (id === 'emergency') {
+      return location.pathname === '/admin/emergency';
     }
     if (id === 'field-reports') {
       return location.pathname === '/admin/field-reports';

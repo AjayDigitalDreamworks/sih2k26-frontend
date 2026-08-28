@@ -9,6 +9,7 @@ import VehicleTracking from '../pages/Admin/VehicleTracking';
 import AlertsNotifications from '../pages/Admin/AlertsNotifications';
 import FieldReports from '../pages/Admin/FieldReports';
 import DistrictManagement from '../pages/Admin/DistrictManagement';
+import Emergency from '../pages/Admin/Emergency';
 
 export default function AppRoutes() {
   return (
@@ -39,6 +40,9 @@ export default function AppRoutes() {
 
       {/* District Management Page */}
       <Route path="/admin/district-management" element={<DistrictManagement />} />
+
+      {/* Emergency Page */}
+      <Route path="/admin/emergency" element={<Emergency />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
