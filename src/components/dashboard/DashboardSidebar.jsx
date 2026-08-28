@@ -70,6 +70,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     if (id === 'route-optimization') return '/admin/route-optimization';
     if (id === 'vehicle-tracking') return '/admin/vehicle-tracking';
     if (id === 'alerts') return '/admin/alerts-notifications';
+    if (id === 'field-reports') return '/admin/field-reports';
     return '#';
   };
 
@@ -88,6 +89,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'alerts') {
       return location.pathname === '/admin/alerts-notifications';
+    }
+    if (id === 'field-reports') {
+      return location.pathname === '/admin/field-reports';
     }
     return false;
   };
