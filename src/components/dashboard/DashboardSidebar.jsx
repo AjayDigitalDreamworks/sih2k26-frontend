@@ -69,6 +69,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     if (id === 'live-map') return '/admin/live-map';
     if (id === 'route-optimization') return '/admin/route-optimization';
     if (id === 'vehicle-tracking') return '/admin/vehicle-tracking';
+    if (id === 'alerts') return '/admin/alerts-notifications';
     return '#';
   };
 
@@ -84,6 +85,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'vehicle-tracking') {
       return location.pathname === '/admin/vehicle-tracking';
+    }
+    if (id === 'alerts') {
+      return location.pathname === '/admin/alerts-notifications';
     }
     return false;
   };
@@ -158,7 +162,11 @@ export default function DashboardSidebar({ isOpen, onClose }) {
 
               {/* Badges */}
               {item.badge && (
-                <span className="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+                <span
+                  className={`w-5 h-5 rounded-full text-white text-[10px] font-bold flex items-center justify-center shadow-xs ${
+                    item.id === 'alerts' ? 'bg-rose-600' : 'bg-emerald-500'
+                  }`}
+                >
                   {item.badge}
                 </span>
               )}

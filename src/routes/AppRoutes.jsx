@@ -6,6 +6,7 @@ import AdminDashboard from '../pages/Admin/AdminDashboard';
 import LiveMapPage from '../pages/Admin/LiveMapPage';
 import RouteOptimization from '../pages/Admin/RouteOptimization';
 import VehicleTracking from '../pages/Admin/VehicleTracking';
+import AlertsNotifications from '../pages/Admin/AlertsNotifications';
 
 export default function AppRoutes() {
   return (
@@ -27,6 +28,12 @@ export default function AppRoutes() {
 
       {/* Vehicle Tracking Page */}
       <Route path="/admin/vehicle-tracking" element={<VehicleTracking />} />
+
+      {/* Alerts & Notifications Page */}
+      <Route
+        path="/admin/alerts-notifications"
+        element={<AlertsNotifications />}
+      />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
