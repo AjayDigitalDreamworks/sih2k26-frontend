@@ -1,5 +1,5 @@
 import React from 'react';
-import footerMountains from '../assets/footer-mountains.jpg';
+import footerMountains from '../../assets/footer-mountains.jpg';
 
 export default function Footer() {
   return (

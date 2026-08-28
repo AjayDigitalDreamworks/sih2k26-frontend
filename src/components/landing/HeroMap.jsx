@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CloudRain, AlertTriangle, ArrowRight, Truck } from 'lucide-react';
-import heroBg from '../assets/hero-bg.jpg';
-import { nerStates } from '../data/landingData';
+import heroBg from '../../assets/hero-bg.jpeg';
+import { nerStates } from '../../data/landingData';
 
 export default function HeroMap() {
   return (
@@ -142,10 +142,6 @@ export default function HeroMap() {
         </div>
       ))}
 
-      {/* ======================================================== */}
-      {/* 4 FLOATING OVERLAY CARDS (Accurately positioned)         */}
-      {/* ======================================================== */}
-
       {/* 1. TOP-LEFT: Network Status Card */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
@@ -160,9 +156,7 @@ export default function HeroMap() {
           {/* Donut Chart */}
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
             <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-              {/* Background ring */}
               <circle cx="18" cy="18" r="14" fill="transparent" stroke="#1e293b" strokeWidth="4.5" />
-              {/* Open: 68% -> strokeDasharray: 68 32 */}
               <circle
                 cx="18"
                 cy="18"
@@ -174,7 +168,6 @@ export default function HeroMap() {
                 strokeDashoffset="0"
                 strokeLinecap="round"
               />
-              {/* At Risk: 21% -> strokeDasharray: 21 79 */}
               <circle
                 cx="18"
                 cy="18"
@@ -186,7 +179,6 @@ export default function HeroMap() {
                 strokeDashoffset="-60"
                 strokeLinecap="round"
               />
-              {/* Blocked: 11% -> strokeDasharray: 11 89 */}
               <circle
                 cx="18"
                 cy="18"

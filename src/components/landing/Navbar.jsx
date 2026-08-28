@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, ChevronDown, Menu, X } from 'lucide-react';
-import { navLinks } from '../data/landingData';
+import { Link } from 'react-router-dom';
+import { navLinks } from '../../data/landingData';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand Name */}
-          <a href="#home" className="flex items-center gap-3 group focus:outline-none">
+          <Link to="/" className="flex items-center gap-3 group focus:outline-none">
             {/* Custom Mountain & Road Brand Icon */}
             <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 shadow-sm group-hover:scale-105 transition-transform">
               <svg viewBox="0 0 40 40" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +46,7 @@ export default function Navbar() {
                 Smart Logistics. Stronger Northeast.
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-7 lg:space-x-8">
@@ -77,7 +78,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all shadow-2xs focus:outline-none"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all shadow-2xs focus:outline-none cursor-pointer"
               >
                 <Globe className="w-3.5 h-3.5 text-slate-500" />
                 <span>{selectedLang}</span>
@@ -100,7 +101,7 @@ export default function Navbar() {
                           setSelectedLang(lang.split(' ')[0]);
                           setLangDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 text-xs font-medium transition-colors hover:bg-emerald-50 hover:text-emerald-700 ${
+                        className={`w-full text-left px-4 py-2 text-xs font-medium transition-colors hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer ${
                           selectedLang === lang.split(' ')[0] ? 'text-emerald-600 bg-emerald-50/60 font-semibold' : 'text-slate-600'
                         }`}
                       >
@@ -112,15 +113,16 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Login / Sign Up Button */}
-            <motion.a
-              href="#login"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-5 py-2 rounded-lg bg-[#1E3A8A] hover:bg-[#172e6d] text-white text-xs font-bold tracking-wide transition-all shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center"
-            >
-              Login/Sign Up
-            </motion.a>
+            {/* Login / Sign Up Button -> Navigates to /login */}
+            <Link to="/login">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-5 py-2 rounded-lg bg-[#1E3A8A] hover:bg-[#172e6d] text-white text-xs font-bold tracking-wide transition-all shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center"
+              >
+                Login/Sign Up
+              </motion.div>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -180,13 +182,13 @@ export default function Navbar() {
               </div>
 
               {/* Login Button */}
-              <a
-                href="#login"
+              <Link
+                to="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2.5 rounded-lg bg-[#1E3A8A] text-white text-xs font-bold text-center shadow-sm"
+                className="w-full py-2.5 rounded-lg bg-[#1E3A8A] text-white text-xs font-bold text-center shadow-sm block"
               >
                 Login/Sign Up
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

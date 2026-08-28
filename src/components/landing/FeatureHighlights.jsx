@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, CloudRain, GitFork, Truck, Bell } from 'lucide-react';
-import { heroHighlights } from '../data/landingData';
+import { heroHighlights } from '../../data/landingData';
 
 export default function FeatureHighlights() {
   const getIcon = (iconName) => {
@@ -32,13 +32,11 @@ export default function FeatureHighlights() {
           whileHover={{ y: -3 }}
           className="flex flex-col items-center text-center group cursor-pointer"
         >
-          {/* Circular Icon Container */}
           <div
             className={`w-12 h-12 rounded-full flex items-center justify-center border shadow-xs transition-all duration-200 group-hover:scale-110 group-hover:shadow-md ${item.bgColor}`}
           >
             {getIcon(item.icon)}
           </div>
-          {/* Label */}
           <span className="mt-2 text-[11px] leading-tight font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors whitespace-pre-line">
             {item.title}
           </span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Brain, GitFork, Truck, BellRing, Smartphone } from 'lucide-react';
-import { featureCards } from '../data/landingData';
+import { featureCards } from '../../data/landingData';
 
 export default function FeatureCards() {
   const getIcon = (icon) => {
@@ -57,7 +57,6 @@ export default function FeatureCards() {
   return (
     <section id="features" className="py-16 sm:py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1E36] tracking-tight">
             Everything You Need, In One Platform
@@ -65,7 +64,6 @@ export default function FeatureCards() {
           <div className="w-14 h-1 bg-emerald-500 rounded-full mx-auto mt-3" />
         </div>
 
-        {/* 6 Feature Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
           {featureCards.map((card, idx) => (
             <motion.div
@@ -77,12 +75,10 @@ export default function FeatureCards() {
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className={`rounded-2xl p-5 sm:p-6 ${card.theme.bg} border ${card.theme.border} ${card.theme.hoverBorder} shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group`}
             >
-              {/* Card Icon */}
               <div className="mb-4 group-hover:scale-110 transition-transform duration-200">
                 {getIcon(card.icon)}
               </div>
 
-              {/* Title & Description */}
               <div className="flex-1 flex flex-col">
                 <h3 className="text-sm font-extrabold text-[#0B1E36] leading-snug mb-2 group-hover:text-emerald-700 transition-colors">
                   {card.title}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, CloudLightning, Cpu, Users } from 'lucide-react';
-import { infoStripItems } from '../data/landingData';
+import { infoStripItems } from '../../data/landingData';
 
 export default function InfoStrip() {
   const getIcon = (icon) => {
@@ -32,12 +32,10 @@ export default function InfoStrip() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="flex items-center gap-4 py-3 sm:py-2 px-3 sm:px-6 first:pl-0 last:pr-0 group"
             >
-              {/* Outline Icon */}
               <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:scale-105 transition-all">
                 {getIcon(item.icon)}
               </div>
 
-              {/* Title & Subtitle */}
               <div className="flex flex-col">
                 <h2 className="text-sm sm:text-[15px] font-bold text-white tracking-tight">
                   {item.title}
