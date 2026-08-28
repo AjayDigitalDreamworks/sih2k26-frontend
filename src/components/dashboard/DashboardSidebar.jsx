@@ -67,6 +67,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
   const getItemLink = (id) => {
     if (id === 'dashboard') return '/admin/dashboard';
     if (id === 'live-map') return '/admin/live-map';
+    if (id === 'route-optimization') return '/admin/route-optimization';
     return '#';
   };
 
@@ -76,6 +77,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'live-map') {
       return location.pathname === '/admin/live-map';
+    }
+    if (id === 'route-optimization') {
+      return location.pathname === '/admin/route-optimization';
     }
     return false;
   };

@@ -4,6 +4,7 @@ import LandingPage from '../pages/Landing/LandingPage';
 import LoginPage from '../pages/Auth/LoginPage';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 import LiveMapPage from '../pages/Admin/LiveMapPage';
+import RouteOptimization from '../pages/Admin/RouteOptimization';
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,9 @@ export default function AppRoutes() {
 
       {/* Live Map Page */}
       <Route path="/admin/live-map" element={<LiveMapPage />} />
+
+      {/* Route Optimization Page */}
+      <Route path="/admin/route-optimization" element={<RouteOptimization />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
