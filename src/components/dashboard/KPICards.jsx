@@ -8,22 +8,22 @@ export default function KPICards() {
     switch (iconName) {
       case 'road':
         return (
-          <svg viewBox="0 0 24 24" className="w-5 h-5 stroke-current" fill="none" strokeWidth="2.2">
+          <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current" fill="none" strokeWidth="2.2">
             <path d="M4 19L8 5H16L20 19" strokeLinecap="round" strokeLinejoin="round" />
             <line x1="12" y1="7" x2="12" y2="10" strokeDasharray="1 1" strokeLinecap="round" />
             <line x1="12" y1="14" x2="12" y2="17" strokeDasharray="1 1" strokeLinecap="round" />
           </svg>
         );
       case 'warning':
-        return <AlertTriangle className="w-5 h-5 stroke-[2.2]" />;
+        return <AlertTriangle className="w-4 h-4 stroke-[2.2]" />;
       case 'blocked':
-        return <Ban className="w-5 h-5 stroke-[2.2]" />;
+        return <Ban className="w-4 h-4 stroke-[2.2]" />;
       case 'truck':
-        return <Truck className="w-5 h-5 stroke-[2.2]" />;
+        return <Truck className="w-4 h-4 stroke-[2.2]" />;
       case 'package':
-        return <Package className="w-5 h-5 stroke-[2.2]" />;
+        return <Package className="w-4 h-4 stroke-[2.2]" />;
       default:
-        return <Milestone className="w-5 h-5 stroke-[2.2]" />;
+        return <Milestone className="w-4 h-4 stroke-[2.2]" />;
     }
   };
 
@@ -36,31 +36,32 @@ export default function KPICards() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: idx * 0.06 }}
           whileHover={{ y: -2 }}
-          className="bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+          className="bg-white rounded-xl p-3 sm:p-3.5 border border-slate-200/80 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
         >
-          {/* Header Row: Title and Colored Icon */}
-          <div className="flex items-center justify-between gap-2 mb-2.5">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-2xs ${kpi.iconBg}`}>
+          {/* Top Row: Icon and Title */}
+          <div className="flex items-center gap-2.5 mb-2.5">
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 shadow-2xs ${kpi.iconBg}`}>
               {getIcon(kpi.icon)}
             </div>
-            <span className="text-[11px] font-bold text-slate-500 text-right leading-tight line-clamp-2">
+            <span className="text-[11px] sm:text-xs font-bold text-slate-500 leading-tight">
               {kpi.title}
             </span>
           </div>
 
-          {/* Value and Percentage Trend */}
-          <div>
-            <div className="text-2xl sm:text-3xl font-black text-[#0B1E36] tracking-tight leading-none mb-1.5">
-              {kpi.value}
-            </div>
-
-            <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
-              <span className="flex items-center font-bold">
-                <ArrowUpRight className="w-3.5 h-3.5" />
+          {/* Bottom Content: Number + Growth inline, and period below */}
+          <div className="pl-[38px]">
+            <div className="flex items-baseline gap-1.5 mb-0.5">
+              <span className="text-lg sm:text-xl font-black text-slate-900 leading-none whitespace-nowrap">
+                {kpi.value}
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-extrabold text-emerald-600 flex items-center flex-shrink-0">
+                <ArrowUpRight className="w-3 h-3" />
                 {kpi.change}
               </span>
-              <span className="text-slate-400 font-medium text-[10px]">{kpi.period}</span>
             </div>
+            <span className="text-[10px] text-slate-400 font-medium leading-none block">
+              {kpi.period}
+            </span>
           </div>
         </motion.div>
       ))}

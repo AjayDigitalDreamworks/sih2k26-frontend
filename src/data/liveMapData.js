@@ -1,0 +1,175 @@
+export const mapLayersList = [
+  { id: 'live-traffic', label: 'Live Traffic', defaultChecked: true },
+  { id: 'active-vehicles', label: 'Active Vehicles', defaultChecked: true },
+  { id: 'incidents', label: 'Incidents', defaultChecked: true },
+  { id: 'road-conditions', label: 'Road Conditions', defaultChecked: true },
+  { id: 'weather-radar', label: 'Weather Radar', defaultChecked: true },
+  { id: 'district-boundary', label: 'District Boundary', defaultChecked: true },
+];
+
+export const mapIncidentPopups = [
+  {
+    id: 1,
+    type: 'landslide',
+    title: 'Landslide Reported',
+    location: 'NH-13A (Jorabat Section)',
+    subLocation: 'Near Sonapur, Assam',
+    time: '10:15 AM',
+    position: { top: '18%', left: '39%' },
+    imageType: 'landslide',
+  },
+  {
+    id: 2,
+    type: 'flood',
+    title: 'Flood Alert',
+    location: 'NH-27 (Near Badarpur)',
+    subLocation: 'Assam',
+    time: '09:45 AM',
+    position: { top: '20%', left: '80%' },
+    imageType: 'flood',
+  },
+  {
+    id: 3,
+    type: 'blocked',
+    title: 'Route Blocked',
+    location: 'NH-37(Jiribam)',
+    subLocation: 'Bridge damaged • Route closed',
+    time: '08:50 AM',
+    position: { top: '46%', left: '46%' },
+    imageType: 'bridge',
+  },
+  {
+    id: 4,
+    type: 'rain',
+    title: 'Heavy Rainfall',
+    location: 'East Khasi Hills',
+    subLocation: 'Meghalaya',
+    time: '09:30 AM',
+    position: { top: '46%', left: '70%' },
+    imageType: 'rain',
+  },
+];
+
+export const liveMapVehicles = [
+  {
+    id: 'AS01AB1234',
+    route: 'Guwahati - Itanagar',
+    speed: '65 km/h',
+    status: 'On Route',
+    statusType: 'success',
+  },
+  {
+    id: 'AS02CD5678',
+    route: 'Silchar - Aizawl',
+    speed: '32 km/h',
+    status: 'Delayed',
+    statusType: 'warning',
+  },
+  {
+    id: 'ML05EF9012',
+    route: 'Shillong - Tura',
+    speed: '48 km/h',
+    status: 'On Route',
+    statusType: 'success',
+  },
+  {
+    id: 'NL01GH3456',
+    route: 'Dimapur - Kohima',
+    speed: '0 km/h',
+    status: 'Stopped',
+    statusType: 'danger',
+  },
+  {
+    id: 'MN01IJ7890',
+    route: 'Imphal - Ukhrul',
+    speed: '62 km/h',
+    status: 'On Route',
+    statusType: 'success',
+  },
+];
+
+export const routeComparisonData = [
+  {
+    id: 'current',
+    tag: 'Current Route (Affected)',
+    title: 'Guwahati → Tura',
+    distance: '285 km',
+    duration: '7h 20m',
+    status: 'Blocked',
+    statusColor: 'text-rose-600 bg-rose-50 border-rose-200',
+    headerBg: 'bg-rose-50/80 border-rose-200',
+    bullets: ['Landslide at Jorabat', 'Bridge damaged at NH-37', 'Not safe for travel'],
+    type: 'danger',
+    accentColor: '#EF4444',
+  },
+  {
+    id: 'recommended',
+    tag: 'AI Recommended',
+    badge: 'Best Option',
+    title: 'Via SH-6 → Goalpara',
+    distance: '312 km',
+    duration: '6h 45m',
+    status: 'Clear',
+    statusColor: 'text-emerald-600 bg-emerald-50 border-emerald-200',
+    headerBg: 'bg-emerald-50/80 border-emerald-200',
+    bullets: ['No major incidents', 'Smooth traffic flow', '12% faster ETA', 'Road conditions good'],
+    type: 'success',
+    actionText: 'Use This Route',
+    accentColor: '#10B981',
+  },
+  {
+    id: 'alternate',
+    tag: 'Alternate Route',
+    title: 'Via NH-2 → Nongpoh',
+    distance: '325 km',
+    duration: '7h 10m',
+    status: 'Moderate',
+    statusColor: 'text-amber-600 bg-amber-50 border-amber-200',
+    headerBg: 'bg-blue-50/80 border-blue-200',
+    bullets: ['Minor congestion', 'Slightly longer distance', 'Light rain in mid section'],
+    type: 'alternate',
+    actionText: 'View on Map',
+    accentColor: '#3B82F6',
+  },
+];
+
+export const liveMapTrafficOverview = {
+  total: 243,
+  breakdown: [
+    { label: 'Smooth', count: 128, percent: '53%', color: 'bg-emerald-500', stroke: '#10B981' },
+    { label: 'Moderate', count: 68, percent: '28%', color: 'bg-amber-500', stroke: '#F59E0B' },
+    { label: 'Heavy', count: 32, percent: '13%', color: 'bg-orange-500', stroke: '#F97316' },
+    { label: 'Blocked', count: 15, percent: '6%', color: 'bg-rose-500', stroke: '#EF4444' },
+  ],
+};
+
+export const liveMapRecentIncidents = [
+  {
+    id: 1,
+    title: 'Landslide - NH-13A',
+    location: 'Jorabat, Assam',
+    time: '10:15 AM',
+    type: 'landslide',
+  },
+  {
+    id: 2,
+    title: 'Road Block - NH-37',
+    location: 'Jiribam, Manipur',
+    time: '08:50 AM',
+    type: 'blocked',
+  },
+  {
+    id: 3,
+    title: 'Flood - NH-27',
+    location: 'Badarpur, Assam',
+    time: '09:45 AM',
+    type: 'flood',
+  },
+  {
+    id: 4,
+    title: 'Heavy Rain',
+    location: 'East Khasi Hills',
+    time: '09:30 AM',
+    type: 'rain',
+  },
+];

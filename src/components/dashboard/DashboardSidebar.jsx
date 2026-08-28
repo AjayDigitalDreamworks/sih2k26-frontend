@@ -12,16 +12,23 @@ import {
   AlertTriangle,
   Users,
   Settings,
-  CloudLightning,
+  PlusCircle,
+  AlertOctagon,
+  FileSpreadsheet,
+  Download,
+  CheckCircle2,
+  Headphones,
   ChevronDown,
   X,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { sidebarNavItems } from '../../data/dashboardData';
 
 export default function DashboardSidebar({ isOpen, onClose }) {
+  const location = useLocation();
+
   const getIcon = (iconName, isEmergency, isActive) => {
-    const iconClass = `w-5 h-5 flex-shrink-0 transition-colors ${
+    const iconClass = `w-4.5 h-4.5 flex-shrink-0 transition-colors ${
       isEmergency
         ? 'text-rose-500'
         : isActive
@@ -57,10 +64,26 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
   };
 
+  const getItemLink = (id) => {
+    if (id === 'dashboard') return '/admin/dashboard';
+    if (id === 'live-map') return '/admin/live-map';
+    return '#';
+  };
+
+  const isItemActive = (id) => {
+    if (id === 'dashboard') {
+      return location.pathname === '/admin/dashboard' || location.pathname === '/admin';
+    }
+    if (id === 'live-map') {
+      return location.pathname === '/admin/live-map';
+    }
+    return false;
+  };
+
   const sidebarContent = (
-    <div className="flex flex-col h-full bg-white border-r border-slate-200/80 select-none">
+    <div className="flex flex-col h-full bg-white border-r border-slate-200/80 select-none overflow-y-auto custom-scrollbar">
       {/* Brand Header */}
-      <div className="p-5 border-b border-slate-100 flex items-center justify-between">
+      <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white z-20">
         <Link to="/" className="flex items-center gap-3 group focus:outline-none">
           <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 shadow-sm group-hover:scale-105 transition-transform">
             <svg viewBox="0 0 40 40" className="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,10 +104,8 @@ export default function DashboardSidebar({ isOpen, onClose }) {
               <span className="text-xl font-extrabold text-[#0B1E36]">NER Logi</span>
               <span className="text-xl font-extrabold text-emerald-600">Smart</span>
             </div>
-            <span className="text-[10px] text-slate-400 font-medium tracking-tight -mt-0.5 leading-tight">
-              Smarter Routes. Safer Deliveries.
-              <br />
-              Stronger Northeast.
+            <span className="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5 leading-tight">
+              Smart Logistics. Stronger Northeast
             </span>
           </div>
         </Link>
@@ -100,18 +121,22 @@ export default function DashboardSidebar({ isOpen, onClose }) {
         )}
       </div>
 
-      {/* Navigation Links */}
-      <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1 custom-scrollbar">
+      {/* Main Navigation Links */}
+      <div className="px-3 py-3 space-y-1">
         {sidebarNavItems.map((item) => {
-          const isActive = item.active;
+          const active = isItemActive(item.id);
           const isEmergency = item.isEmergency;
+          const linkTarget = getItemLink(item.id);
 
           return (
-            <button
+            <Link
               key={item.id}
-              type="button"
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all group cursor-pointer text-left focus:outline-none ${
-                isActive
+              to={linkTarget}
+              onClick={() => {
+                if (onClose) onClose();
+              }}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all group text-left focus:outline-none ${
+                active
                   ? 'bg-emerald-50/90 text-emerald-700 shadow-2xs font-extrabold'
                   : isEmergency
                   ? 'text-rose-500 hover:bg-rose-50/60'
@@ -119,7 +144,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
               }`}
             >
               <div className="flex items-center gap-3">
-                {getIcon(item.icon, isEmergency, isActive)}
+                {getIcon(item.icon, isEmergency, active)}
                 <span className="tracking-tight">{item.label}</span>
               </div>
 
@@ -129,42 +154,97 @@ export default function DashboardSidebar({ isOpen, onClose }) {
                   {item.badge}
                 </span>
               )}
-            </button>
+            </Link>
           );
         })}
       </div>
 
-      {/* Bottom Area: Offline Mode & User Profile */}
-      <div className="p-3.5 border-t border-slate-100 space-y-3 bg-slate-50/50">
-        {/* Offline Mode Status Card */}
-        <div className="flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-          <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
-            <CloudLightning className="w-4 h-4" />
+      {/* Quick Tools Section */}
+      <div className="px-4 py-3 border-t border-slate-100">
+        <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-2">
+          Quick Tools
+        </span>
+        <div className="space-y-1.5">
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-blue-50/70 text-blue-700 hover:bg-blue-100/70 transition-all text-xs font-bold text-left cursor-pointer hover:shadow-xs focus:outline-none"
+          >
+            <PlusCircle className="w-4 h-4 text-blue-600" />
+            <span>Add Vehicle</span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-rose-50/70 text-rose-700 hover:bg-rose-100/70 transition-all text-xs font-bold text-left cursor-pointer hover:shadow-xs focus:outline-none"
+          >
+            <AlertOctagon className="w-4 h-4 text-rose-600" />
+            <span>Create Alert</span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-emerald-50/70 text-emerald-700 hover:bg-emerald-100/70 transition-all text-xs font-bold text-left cursor-pointer hover:shadow-xs focus:outline-none"
+          >
+            <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
+            <span>Generate Report</span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-amber-50/70 text-amber-700 hover:bg-amber-100/70 transition-all text-xs font-bold text-left cursor-pointer hover:shadow-xs focus:outline-none"
+          >
+            <Download className="w-4 h-4 text-amber-600" />
+            <span>Import Data</span>
+          </motion.button>
+        </div>
+      </div>
+
+      {/* System Status Section */}
+      <div className="px-4 py-3 border-t border-slate-100">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">
+            System Status
+          </span>
+           
+        </div>
+        <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 mb-2">
+          <CheckCircle2 className="w-3 h-3" />
+          All Systems Operational
+        </span>
+        <div className="space-y-1.5 text-[11px] font-medium text-slate-600">
+          <div className="flex items-center justify-between">
+            <span className="text-slate-500">GPS Tracking</span>
+            <span className="font-bold text-emerald-600">Online</span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-xs font-bold text-slate-800 leading-tight">Offline Mode</span>
-            <span className="text-[10px] text-slate-400 font-medium leading-tight mt-0.5">
-              Data will sync when you're back online
-            </span>
+          <div className="flex items-center justify-between">
+            <span className="text-slate-500">Data Sync</span>
+            <span className="font-bold text-emerald-600">Online</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-slate-500">AI Engine</span>
+            <span className="font-bold text-emerald-600">Online</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-slate-500">Server Status</span>
+            <span className="font-bold text-emerald-600">Online</span>
           </div>
         </div>
+      </div>
 
-        {/* User Profile Card */}
-        <div className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-100/70 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-teal-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-              AU
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs font-bold text-slate-800 leading-tight group-hover:text-emerald-700 transition-colors">
-                Admin User
-              </span>
-              <span className="text-[10px] text-slate-400 font-medium leading-tight">
-                Government Admin
-              </span>
-            </div>
+      {/* Need Help? Box */}
+      <div className="p-3.5 border-t border-slate-100 bg-slate-50/60 mt-auto">
+        <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
+          <div>
+            <span className="text-xs font-bold text-slate-800 block leading-tight">Need Help?</span>
+            <span className="text-[10px] text-slate-400 font-medium leading-tight">
+              Control room available 24/7 to assist you
+            </span>
           </div>
-          <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-slate-600 transition-colors" />
+          <button className="w-full py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-2xs">
+            <Headphones className="w-3.5 h-3.5" />
+            <span>Contact Support</span>
+          </button>
         </div>
       </div>
     </div>
@@ -173,7 +253,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
   return (
     <>
       {/* Desktop Sticky Sidebar */}
-      <aside className="hidden lg:block w-64 xl:w-72 h-screen sticky top-0 flex-shrink-0 z-30">
+      <aside className="hidden lg:block w-64 xl:w-70 h-screen sticky top-0 flex-shrink-0 z-30">
         {sidebarContent}
       </aside>
 

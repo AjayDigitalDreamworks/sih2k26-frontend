@@ -1,9 +1,12 @@
 import React from 'react';
 import { Menu, Search, Sun, Bell, ChevronDown } from 'lucide-react';
 
-export default function DashboardHeader({ onToggleSidebar }) {
+export default function DashboardHeader({
+  onToggleSidebar,
+  placeholder = 'Search routes, vehicles, districts, alerts...',
+}) {
   return (
-    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
       {/* Left: Hamburger Menu (Mobile & Tablet) */}
       <div className="flex items-center gap-3">
         <button
@@ -21,7 +24,7 @@ export default function DashboardHeader({ onToggleSidebar }) {
           </div>
           <input
             type="text"
-            placeholder="Search routes, vehicles, districts, alerts..."
+            placeholder={placeholder}
             className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-2xs"
           />
         </div>
@@ -51,8 +54,8 @@ export default function DashboardHeader({ onToggleSidebar }) {
         </div>
 
         {/* National Emblem / Government Admin Avatar */}
-        <div className="flex items-center gap-1.5 pl-1.5 border-l border-slate-200 cursor-pointer group">
-          <div className="w-8 h-8 rounded-full bg-amber-50 border border-amber-200/80 flex items-center justify-center shadow-2xs overflow-hidden">
+        <div className="flex items-center gap-2 pl-2 border-l border-slate-200 cursor-pointer group">
+          <div className="w-8 h-8 rounded-full bg-amber-50 border border-amber-200/80 flex items-center justify-center shadow-2xs overflow-hidden flex-shrink-0">
             {/* Ashoka Emblem representation / Gov seal */}
             <svg viewBox="0 0 24 24" className="w-5 h-5 text-amber-700 fill-current" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L15 8H9L12 2Z" />
@@ -60,6 +63,9 @@ export default function DashboardHeader({ onToggleSidebar }) {
               <rect x="7" y="17" width="10" height="4" rx="1" />
             </svg>
           </div>
+          <span className="hidden sm:inline text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
+            Government Admin
+          </span>
           <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 transition-colors" />
         </div>
       </div>
