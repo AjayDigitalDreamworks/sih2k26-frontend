@@ -20,6 +20,8 @@ import {
   Headphones,
   ChevronDown,
   X,
+  Fuel,
+  Network,
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { sidebarNavItems } from '../../data/dashboardData';
@@ -53,6 +55,10 @@ export default function DashboardSidebar({ isOpen, onClose }) {
         return <ClipboardList className={iconClass} />;
       case 'bar-chart':
         return <BarChart2 className={iconClass} />;
+      case 'fuel':
+        return <Fuel className={iconClass} />;
+      case 'network':
+        return <Network className={iconClass} />;
       case 'alert-triangle':
         return <AlertTriangle className={iconClass} />;
       case 'users':
@@ -71,6 +77,7 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     if (id === 'vehicle-tracking') return '/admin/vehicle-tracking';
     if (id === 'alerts') return '/admin/alerts-notifications';
     if (id === 'field-reports') return '/admin/field-reports';
+    if (id === 'district-management') return '/admin/district-management';
     return '#';
   };
 
@@ -92,6 +99,9 @@ export default function DashboardSidebar({ isOpen, onClose }) {
     }
     if (id === 'field-reports') {
       return location.pathname === '/admin/field-reports';
+    }
+    if (id === 'district-management') {
+      return location.pathname === '/admin/district-management';
     }
     return false;
   };

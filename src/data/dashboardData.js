@@ -5,11 +5,13 @@ export const sidebarNavItems = [
   { id: 'route-optimization', label: 'Route Optimization', icon: 'route', active: false },
   { id: 'vehicle-tracking', label: 'Vehicle Tracking', icon: 'truck', active: false },
   { id: 'alerts', label: 'Alerts & Notifications', icon: 'bell', badge: '8', active: false },
+  { id: 'emergency', label: 'Emergency', icon: 'alert-triangle', isEmergency: true, active: false },
   { id: 'field-reports', label: 'Field Reports', icon: 'clipboard', active: false },
   { id: 'analytics', label: 'Analytics & Reports', icon: 'bar-chart', active: false },
-  { id: 'emergency', label: 'Emergency Mode', icon: 'alert-triangle', isEmergency: true, active: false },
-  { id: 'user-management', label: 'User Management', icon: 'users', active: false },
-  { id: 'system-settings', label: 'System Settings', icon: 'settings', active: false },
+  { id: 'fuel-management', label: 'Fuel Management', icon: 'fuel', active: false },
+  { id: 'driver-management', label: 'Driver Management', icon: 'users', active: false },
+  { id: 'district-management', label: 'District Management', icon: 'network', active: false },
+  { id: 'settings', label: 'Settings', icon: 'settings', active: false },
 ];
 
 export const kpiData = [
