@@ -142,7 +142,7 @@ export default function LoginForm() {
         <motion.button
           type="submit"
           whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.99 }}
+          whileTap={{ scale: 0.950 }}
           className="w-full py-3.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm shadow-md shadow-emerald-700/20 flex items-center justify-center gap-2 cursor-pointer transition-all focus:outline-none"
         >
           <span>Sign In</span>

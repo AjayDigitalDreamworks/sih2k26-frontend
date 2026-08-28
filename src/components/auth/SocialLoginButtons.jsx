@@ -3,21 +3,21 @@ import { Smartphone } from 'lucide-react';
 
 export default function SocialLoginButtons() {
   return (
-    <div className="space-y-4 pt-1">
-      {/* Divider */}
-      <div className="relative flex items-center justify-center">
+    <div className="space-y-3 pt-1">
+      {/* Divider with proper vertical margins */}
+      <div className="relative flex items-center justify-center my-3">
         <div className="border-t border-slate-200 w-full" />
-        <span className="bg-white px-3 text-xs text-slate-400 font-medium absolute">
+        <span className="bg-white px-3 text-[11px] text-slate-400 font-medium absolute">
           or continue with
         </span>
       </div>
 
       {/* Social Provider Buttons */}
-      <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+      <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
         {/* Google */}
         <button
           type="button"
-          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 py-2 px-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
         >
           {/* Google SVG */}
           <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0">
@@ -44,7 +44,7 @@ export default function SocialLoginButtons() {
         {/* Microsoft */}
         <button
           type="button"
-          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 py-2 px-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
         >
           {/* Microsoft SVG */}
           <svg viewBox="0 0 21 21" className="w-4 h-4 flex-shrink-0">
@@ -59,7 +59,7 @@ export default function SocialLoginButtons() {
         {/* Mobile OTP */}
         <button
           type="button"
-          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 py-2 px-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 shadow-2xs cursor-pointer focus:outline-none"
         >
           <Smartphone className="w-4 h-4 text-slate-600 flex-shrink-0" />
           <span className="truncate">Mobile OTP</span>

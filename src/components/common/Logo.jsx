@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Logo({ size = 'default', showSubtitle = true, linkTo = '/' }) {
+export default function Logo({ size = 'default', showSubtitle = true, linkTo = '/', darkBg = false }) {
   return (
     <Link to={linkTo} className="flex items-center gap-3 group focus:outline-none select-none">
       {/* Custom Mountain & Road Brand Icon */}
@@ -26,11 +26,11 @@ export default function Logo({ size = 'default', showSubtitle = true, linkTo = '
       
       <div className="flex flex-col">
         <div className="flex items-baseline tracking-tight">
-          <span className={`${size === 'large' ? 'text-3xl' : 'text-2xl'} font-extrabold text-[#0B1E36] tracking-tight`}>NER Logi</span>
-          <span className={`${size === 'large' ? 'text-3xl' : 'text-2xl'} font-extrabold text-emerald-600 tracking-tight`}>Smart</span>
+          <span className={`${size === 'large' ? 'text-3xl' : 'text-2xl'} font-extrabold ${darkBg ? 'text-white' : 'text-[#0B1E36]'} tracking-tight`}>NER Logi</span>
+          <span className={`${size === 'large' ? 'text-3xl' : 'text-2xl'} font-extrabold ${darkBg ? 'text-emerald-400' : 'text-emerald-600'} tracking-tight`}>Smart</span>
         </div>
         {showSubtitle && (
-          <span className="text-[11px] text-slate-500 font-medium tracking-tight -mt-0.5">
+          <span className={`text-[11px] ${darkBg ? 'text-slate-300' : 'text-slate-500'} font-medium tracking-tight -mt-0.5`}>
             Smart Logistics. Stronger Northeast.
           </span>
         )}

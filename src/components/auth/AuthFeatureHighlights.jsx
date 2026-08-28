@@ -38,10 +38,10 @@ export default function AuthFeatureHighlights() {
 
           {/* Title & Description */}
           <div className="flex flex-col">
-            <h4 className="text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-snug">
+            <h4 className="text-xs sm:text-sm font-bold text-white tracking-tight leading-snug">
               {feature.title}
             </h4>
-            <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-tight mt-0.5">
+            <p className="text-[11px] sm:text-xs text-slate-200/90 font-normal leading-tight mt-0.5">
               {feature.description}
             </p>
           </div>
