@@ -67,6 +67,12 @@ export default function TransporterSidebar({ isOpen, onClose }) {
         location.pathname === '/consignments'
       );
     }
+    if (id === 'vehicles') {
+      return (
+        location.pathname === '/transporter/vehicles' ||
+        location.pathname === '/vehicles'
+      );
+    }
     return location.pathname.includes(id);
   };
 
@@ -127,6 +133,8 @@ export default function TransporterSidebar({ isOpen, onClose }) {
                   ? '/transporter/dashboard'
                   : item.id === 'consignments'
                   ? '/transporter/consignments'
+                  : item.id === 'vehicles'
+                  ? '/transporter/vehicles'
                   : '#'
               }
               onClick={() => {
