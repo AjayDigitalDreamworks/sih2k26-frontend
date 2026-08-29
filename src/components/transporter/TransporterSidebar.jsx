@@ -22,7 +22,7 @@ export default function TransporterSidebar({ isOpen, onClose }) {
 
   const getIcon = (iconName, isActive) => {
     const iconClass = `w-4.5 h-4.5 flex-shrink-0 transition-colors ${
-      isActive ? 'text-emerald-600' : 'text-slate-500 group-hover:text-slate-800'
+      isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-800'
     }`;
 
     switch (iconName) {
@@ -59,6 +59,12 @@ export default function TransporterSidebar({ isOpen, onClose }) {
         location.pathname === '/transporter/dashboard' ||
         location.pathname === '/dashboard' ||
         location.pathname === '/admin/dashboard'
+      );
+    }
+    if (id === 'consignments') {
+      return (
+        location.pathname === '/transporter/consignments' ||
+        location.pathname === '/consignments'
       );
     }
     return location.pathname.includes(id);
@@ -116,13 +122,19 @@ export default function TransporterSidebar({ isOpen, onClose }) {
           return (
             <Link
               key={item.id}
-              to={item.id === 'dashboard' ? '/transporter/dashboard' : '#'}
+              to={
+                item.id === 'dashboard'
+                  ? '/transporter/dashboard'
+                  : item.id === 'consignments'
+                  ? '/transporter/consignments'
+                  : '#'
+              }
               onClick={() => {
                 if (onClose) onClose();
               }}
               className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all group text-left focus:outline-none ${
                 active
-                  ? 'bg-emerald-50/90 text-emerald-700 shadow-2xs font-extrabold'
+                  ? 'bg-[#0D7A48] text-white shadow-xs font-extrabold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
@@ -133,7 +145,11 @@ export default function TransporterSidebar({ isOpen, onClose }) {
 
               {/* Badges */}
               {item.badge && (
-                <span className="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+                <span
+                  className={`w-5 h-5 rounded-full ${
+                    active ? 'bg-white/20 text-white' : 'bg-emerald-500 text-white'
+                  } text-[10px] font-bold flex items-center justify-center shadow-xs`}
+                >
                   {item.badge}
                 </span>
               )}

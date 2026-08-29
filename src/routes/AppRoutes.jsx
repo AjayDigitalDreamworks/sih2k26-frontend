@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from '../pages/Landing/LandingPage';
 import LoginPage from '../pages/Auth/LoginPage';
 import TransporterDashboard from '../pages/Transporter/TransporterDashboard';
+import MyConsignments from '../pages/Transporter/MyConsignments';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,10 @@ export default function AppRoutes() {
       <Route path="/transporter/dashboard" element={<TransporterDashboard />} />
       <Route path="/dashboard" element={<TransporterDashboard />} />
       <Route path="/admin/dashboard" element={<TransporterDashboard />} />
+
+      {/* Transporter Consignments Page */}
+      <Route path="/transporter/consignments" element={<MyConsignments />} />
+      <Route path="/consignments" element={<MyConsignments />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />

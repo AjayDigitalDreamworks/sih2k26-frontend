@@ -10,7 +10,7 @@ import {
   User,
 } from 'lucide-react';
 
-export default function TransporterHeader({ onToggleSidebar }) {
+export default function TransporterHeader({ onToggleSidebar, isDashboard = true }) {
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState('English');
   const [profileOpen, setProfileOpen] = useState(false);
@@ -150,38 +150,40 @@ export default function TransporterHeader({ onToggleSidebar }) {
         </div>
 
         {/* Lower Header Row: Main Heading + Date & Add Consignment Button */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-          {/* Main Heading & Subtitle */}
-          <div>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] tracking-tight leading-tight">
-              Let's move every delivery forward.
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium leading-tight mt-0.5">
-              Here's what's happening with your operations today.
-            </p>
-          </div>
-
-          {/* Action Bar: Date Selector & Green Add Consignment Button */}
-          <div className="flex items-center gap-2.5 self-start sm:self-auto flex-shrink-0">
-            {/* Date Selector */}
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-2xs text-xs font-bold text-slate-700 cursor-pointer hover:border-slate-300 transition-colors">
-              <Calendar className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-              <span>21 May 2025, Wednesday</span>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-1" />
+        {isDashboard && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+            {/* Main Heading & Subtitle */}
+            <div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] tracking-tight leading-tight">
+                Let's move every delivery forward.
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-500 font-medium leading-tight mt-0.5">
+                Here's what's happening with your operations today.
+              </p>
             </div>
 
-            {/* Add Consignment Button */}
-            <motion.button
-              type="button"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Add Consignment</span>
-            </motion.button>
+            {/* Action Bar: Date Selector & Green Add Consignment Button */}
+            <div className="flex items-center gap-2.5 self-start sm:self-auto flex-shrink-0">
+              {/* Date Selector */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-2xs text-xs font-bold text-slate-700 cursor-pointer hover:border-slate-300 transition-colors">
+                <Calendar className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                <span>21 May 2025, Wednesday</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-1" />
+              </div>
+
+              {/* Add Consignment Button */}
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Add Consignment</span>
+              </motion.button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
