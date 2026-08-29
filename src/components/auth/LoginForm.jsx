@@ -17,7 +17,7 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (emailOrPhone.trim() && password.trim()) {
-      navigate('/admin/dashboard');
+      navigate('/transporter/dashboard');
     }
   };
 
