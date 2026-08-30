@@ -6,6 +6,7 @@ import TransporterDashboard from '../pages/Transporter/TransporterDashboard';
 import MyConsignments from '../pages/Transporter/MyConsignments';
 import MyVehicles from '../pages/Transporter/MyVehicles';
 import LiveTrackingPage from '../pages/Transporter/LiveTrackingPage';
+import RoutePlanningPage from '../pages/Transporter/RoutePlanningPage';
 
 export default function AppRoutes() {
   return (
@@ -34,6 +35,12 @@ export default function AppRoutes() {
       <Route path="/transporter/tracking" element={<LiveTrackingPage />} />
       <Route path="/live-tracking" element={<LiveTrackingPage />} />
       <Route path="/tracking" element={<LiveTrackingPage />} />
+
+      {/* Transporter Route Planning Page */}
+      <Route path="/transporter/routes" element={<RoutePlanningPage />} />
+      <Route path="/transporter/route-planning" element={<RoutePlanningPage />} />
+      <Route path="/routes" element={<RoutePlanningPage />} />
+      <Route path="/route-planning" element={<RoutePlanningPage />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
