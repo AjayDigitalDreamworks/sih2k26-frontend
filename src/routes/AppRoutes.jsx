@@ -11,6 +11,7 @@ import AlertsPage from '../pages/Transporter/AlertsPage';
 import DeliveryHistoryPage from '../pages/Transporter/DeliveryHistoryPage';
 import ReportsPage from '../pages/Transporter/ReportsPage';
 import SettingsPage from '../pages/Transporter/SettingsPage';
+import HelpSupportPage from '../pages/Transporter/HelpSupportPage';
 
 export default function AppRoutes() {
   return (
@@ -63,6 +64,12 @@ export default function AppRoutes() {
       {/* Transporter Settings Page */}
       <Route path="/transporter/settings" element={<SettingsPage />} />
       <Route path="/settings" element={<SettingsPage />} />
+
+      {/* Transporter Help & Support Page */}
+      <Route path="/transporter/help" element={<HelpSupportPage />} />
+      <Route path="/transporter/support" element={<HelpSupportPage />} />
+      <Route path="/help" element={<HelpSupportPage />} />
+      <Route path="/support" element={<HelpSupportPage />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />

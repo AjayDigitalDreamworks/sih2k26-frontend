@@ -12,7 +12,7 @@ import {
   User,
   Settings,
   Headphones,
-  X,
+  X,  
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { sidebarNavItems, sidebarSecondaryItems } from '../../data/transporterData';
@@ -113,6 +113,14 @@ export default function TransporterSidebar({ isOpen, onClose }) {
       return (
         location.pathname === '/transporter/settings' ||
         location.pathname === '/settings'
+      );
+    }
+    if (id === 'help') {
+      return (
+        location.pathname === '/transporter/help' ||
+        location.pathname === '/transporter/support' ||
+        location.pathname === '/help' ||
+        location.pathname === '/support'
       );
     }
     return location.pathname.includes(id);
@@ -234,6 +242,8 @@ export default function TransporterSidebar({ isOpen, onClose }) {
               to={
                 item.id === 'settings'
                   ? '/transporter/settings'
+                  : item.id === 'help'
+                  ? '/transporter/help'
                   : '#'
               }
               onClick={() => {
