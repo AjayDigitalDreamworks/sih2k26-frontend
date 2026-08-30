@@ -103,6 +103,12 @@ export default function TransporterSidebar({ isOpen, onClose }) {
         location.pathname === '/history'
       );
     }
+    if (id === 'reports') {
+      return (
+        location.pathname === '/transporter/reports' ||
+        location.pathname === '/reports'
+      );
+    }
     return location.pathname.includes(id);
   };
 
@@ -173,6 +179,8 @@ export default function TransporterSidebar({ isOpen, onClose }) {
                   ? '/transporter/alerts'
                   : item.id === 'history'
                   ? '/transporter/delivery-history'
+                  : item.id === 'reports'
+                  ? '/transporter/reports'
                   : '#'
               }
               onClick={() => {
