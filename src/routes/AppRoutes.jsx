@@ -8,6 +8,7 @@ import MyVehicles from '../pages/Transporter/MyVehicles';
 import LiveTrackingPage from '../pages/Transporter/LiveTrackingPage';
 import RoutePlanningPage from '../pages/Transporter/RoutePlanningPage';
 import AlertsPage from '../pages/Transporter/AlertsPage';
+import DeliveryHistoryPage from '../pages/Transporter/DeliveryHistoryPage';
 
 export default function AppRoutes() {
   return (
@@ -46,6 +47,12 @@ export default function AppRoutes() {
       {/* Transporter Alerts Page */}
       <Route path="/transporter/alerts" element={<AlertsPage />} />
       <Route path="/alerts" element={<AlertsPage />} />
+
+      {/* Transporter Delivery History Page */}
+      <Route path="/transporter/delivery-history" element={<DeliveryHistoryPage />} />
+      <Route path="/transporter/history" element={<DeliveryHistoryPage />} />
+      <Route path="/delivery-history" element={<DeliveryHistoryPage />} />
+      <Route path="/history" element={<DeliveryHistoryPage />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />

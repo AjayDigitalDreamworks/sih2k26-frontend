@@ -101,7 +101,7 @@ export const alertsListData = [
     reportedBy: 'Traffic Police Assam',
     affectedHighway: 'NH-715',
     image:
-      'https://images.unsplash.com/photo-1578874691223-a4958a40a8a6?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1635068741358-ab1b9813623f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJva2VuJTIwcm9hZHxlbnwwfHwwfHx8MA%3D%3D',
     locationCoords: [27.0500, 94.5500],
     routeCoordinates: {
       blocked: [
