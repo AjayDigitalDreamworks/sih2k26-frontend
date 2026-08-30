@@ -89,6 +89,12 @@ export default function TransporterSidebar({ isOpen, onClose }) {
         location.pathname === '/route-planning'
       );
     }
+    if (id === 'alerts') {
+      return (
+        location.pathname === '/transporter/alerts' ||
+        location.pathname === '/alerts'
+      );
+    }
     return location.pathname.includes(id);
   };
 
@@ -155,6 +161,8 @@ export default function TransporterSidebar({ isOpen, onClose }) {
                   ? '/transporter/live-tracking'
                   : item.id === 'routes'
                   ? '/transporter/routes'
+                  : item.id === 'alerts'
+                  ? '/transporter/alerts'
                   : '#'
               }
               onClick={() => {
