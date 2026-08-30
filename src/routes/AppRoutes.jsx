@@ -10,6 +10,7 @@ import RoutePlanningPage from '../pages/Transporter/RoutePlanningPage';
 import AlertsPage from '../pages/Transporter/AlertsPage';
 import DeliveryHistoryPage from '../pages/Transporter/DeliveryHistoryPage';
 import ReportsPage from '../pages/Transporter/ReportsPage';
+import SettingsPage from '../pages/Transporter/SettingsPage';
 
 export default function AppRoutes() {
   return (
@@ -58,6 +59,10 @@ export default function AppRoutes() {
       {/* Transporter Reports Page */}
       <Route path="/transporter/reports" element={<ReportsPage />} />
       <Route path="/reports" element={<ReportsPage />} />
+
+      {/* Transporter Settings Page */}
+      <Route path="/transporter/settings" element={<SettingsPage />} />
+      <Route path="/settings" element={<SettingsPage />} />
 
       {/* Fallback to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />

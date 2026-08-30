@@ -109,6 +109,12 @@ export default function TransporterSidebar({ isOpen, onClose }) {
         location.pathname === '/reports'
       );
     }
+    if (id === 'settings') {
+      return (
+        location.pathname === '/transporter/settings' ||
+        location.pathname === '/settings'
+      );
+    }
     return location.pathname.includes(id);
   };
 
@@ -225,13 +231,17 @@ export default function TransporterSidebar({ isOpen, onClose }) {
           return (
             <Link
               key={item.id}
-              to="#"
+              to={
+                item.id === 'settings'
+                  ? '/transporter/settings'
+                  : '#'
+              }
               onClick={() => {
                 if (onClose) onClose();
               }}
               className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all group text-left focus:outline-none ${
                 active
-                  ? 'bg-emerald-50/90 text-emerald-700 shadow-2xs font-extrabold'
+                  ? 'bg-[#0D7A48] text-white shadow-xs font-extrabold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
